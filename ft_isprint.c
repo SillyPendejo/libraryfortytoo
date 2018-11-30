@@ -6,16 +6,13 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 06:40:18 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/11/30 06:40:52 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/01 01:27:12 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isprint(int c)
 {
-	unsigned char uc;
-
-	uc = (unsigned char)c;
-	if (uc >= 32 && uc <= 126)
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }

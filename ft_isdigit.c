@@ -6,16 +6,13 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 05:59:56 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/11/30 06:09:32 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/01 01:26:46 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isdigit(int c)
 {
-	unsigned char uc;
-
-	uc = (unsigned char)c;
-	if (uc >= '0' && uc <= '9')
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
