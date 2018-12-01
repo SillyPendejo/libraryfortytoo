@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 int ft_atoi(const char *s1);
-int main()
+int main(int c, char **v)
 {
-	char *s1 = "000da02avc";
-	printf("atoi   : %d\nft_atoi: %d\n", atoi(s1), ft_atoi(s1));
+	if (c == 2)
+		printf("atoi   : %d\nft_atoi: %d\n", atoi(v[1]), ft_atoi(v[1]));
 }
