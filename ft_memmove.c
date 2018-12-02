@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 20:37:27 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/02 02:54:58 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/02 06:48:05 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static char		direction(void *dst, const void *src, size_t len)
 {
 	size_t	i;
-	size_t 	j;
-	char 	dir;
+	size_t	j;
+	char	dir;
 
 	i = 0;
 	j = 0;
@@ -27,7 +27,7 @@ static char		direction(void *dst, const void *src, size_t len)
 		{
 			if (&src[i] == &dst[j])
 			{
-				dir = i > j ? 'l' : 'r'; //dst is on the right if true
+				dir = i > j ? 'l' : 'r';
 				return (dir);
 			}
 			j++;
@@ -45,7 +45,7 @@ static void		swapl(char *dst, const char *src, size_t len)
 
 	i = len - 1;
 	buf = src[i];
-	while (i  >= 0)
+	while (i >= 0)
 	{
 		dst[i] = buf;
 		if (i - 1 >= 0)
