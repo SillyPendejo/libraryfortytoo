@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/02 06:30:28 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/04 18:49:44 by tiyellow         ###   ########.fr       */
+/*   Created: 2018/11/23 20:34:15 by tiyellow          #+#    #+#             */
+/*   Updated: 2018/11/23 22:04:29 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
-#include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	void	*ret;
+	unsigned char	uc;
+	size_t			i;
 
-	if (!(ret = malloc(size)))
-		return (NULL);
-	ft_memset(ret, 0, size);
-	return (ret);
+	uc = (unsigned char)c;
+	i = -1;
+	while (++i < len)
+		((unsigned char *)b)[i] = uc;
+	return (b);
 }
