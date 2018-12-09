@@ -6,12 +6,13 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:42:01 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/07 16:38:29 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/09 14:13:34 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
+#include "libft.h"
 
 static size_t		wcount(char const *s, char c)
 {
@@ -97,19 +98,19 @@ char				**ft_strsplit(char const *s, char c)
 	size_t	words;
 	char	**ret;
 
-	words = 0;
 	if (!s)
 		return (NULL);
-	else if (!s[0])
-	{
-		if (!(ret = (char **)malloc(sizeof(*ret) * 2)))
-			return (NULL);
-	}
 	words = wcount(s, c);
-	else if (!(ret = (char **)malloc(sizeof(*ret) * words + 1)))
+	if (!s[0] || words == 0)
+	{
+		if (!(*ret = ft_strnew(0)))
+			return (NULL);
+		return (ret);
+	}
+	if (!(ret = (char **)malloc(sizeof(*ret) * words + 1)))
 		return (NULL);
 	if (!filler(s, c, ret, words))
 		return (NULL);
-	ret[words] = '\0';
+	ret[words] = NULL;
 	return (ret);
 }

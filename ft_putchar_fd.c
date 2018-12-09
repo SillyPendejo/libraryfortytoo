@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/09 12:04:44 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/09 12:06:18 by tiyellow         ###   ########.fr       */
+/*   Created: 2018/12/09 15:17:03 by tiyellow          #+#    #+#             */
+/*   Updated: 2018/12/09 15:22:39 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
+#include <unistd.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned char *tmp;
-	unsigned char *tmp2;
+	char buf[1];
 
-	tmp = dest;
-	tmp2 = (unsigned char*)src;
-	if (src >= dest)
-		while (n--)
-			*tmp++ = *tmp2++;
-	else
-		while (n--)
-			tmp[n] = tmp2[n];
-	return (dest);
+	buf[0] = c;
+	write(fd, buf, 1);
 }

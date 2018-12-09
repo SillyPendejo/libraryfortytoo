@@ -17,7 +17,7 @@ int		main()
 	fa = a;
 	printf("dst   : %s\nsrc   : %s\nn: %d\n", a, b, (int)n);
 	printf("ft_dst: %s\nsrc_ft: %s\n", a, b);
-	memccpy(a, b, ':', n);
+	memccpy(NULL, NULL, ':', n);
 	ft_memccpy(fa, fb, ':', n);
 	printf("memcpy dst   : %s\nft_memcpy dst: %s\n", a, fa);
 }
