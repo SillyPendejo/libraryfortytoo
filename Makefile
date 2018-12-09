@@ -6,17 +6,17 @@
 #    By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/09 20:30:29 by tiyellow          #+#    #+#              #
-#    Updated: 2018/12/09 20:31:22 by tiyellow         ###   ########.fr        #
+#    Updated: 2018/12/09 20:44:45 by tiyellow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 
 all: $(NAME)
 
 $(NAME):
 	@gcc -c ft_*.c
-	@ar rc $(NAME).a ft_*.o
+	@ar rc $(NAME) ft_*.o
 clean:
 	@rm -f *.o
 fclean: clean
