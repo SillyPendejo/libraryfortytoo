@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 02:57:27 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/06 15:21:13 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/09 18:49:05 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	if ((char)c == '\0')
 	{
-		if (((char *)s + i + 1)[0] == '\0')
-			return ((char *)s + i + 1);
+		if (((char *)s + i)[0] == '\0')
+			return ((char *)s + i);
 	}
 	while (i >= 0)
 	{

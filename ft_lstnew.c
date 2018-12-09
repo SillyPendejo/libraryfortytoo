@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 15:42:21 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/09 18:09:11 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/09 19:39:42 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		ft_memcpy(ret->content, content, content_size);
 		ret->content_size = content_size;
 	}
+	ret->next = NULL;
 	return (ret);
 }

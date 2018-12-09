@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:42:01 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/09 14:13:34 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/09 19:40:20 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static size_t		wcount(char const *s, char c)
 
 	i = 0;
 	words = 0;
+	if (!s[i])
+		return (0);
 	if (s[i] != c)
-	{
-		words++;
-		while (s[i] != c)
-			i++;
-	}
+		words = 1;
+	while (s[i] != c && s[i])
+		i++;
 	while (s[i + 1])
 	{
 		if (s[i] == c && s[i + 1] != c)
@@ -99,12 +99,17 @@ char				**ft_strsplit(char const *s, char c)
 	char	**ret;
 
 	if (!s)
-		return (NULL);
-	words = wcount(s, c);
-	if (!s[0] || words == 0)
 	{
-		if (!(*ret = ft_strnew(0)))
+		return (NULL);
+	}
+	words = wcount(s, c);
+	if (words == 0)
+	{
+		if (!(ret = (char **)malloc(sizeof(*ret))))
 			return (NULL);
+		if (!(*ret = (char *)malloc(sizeof(**ret))))
+			return (NULL);
+		*ret = NULL;
 		return (ret);
 	}
 	if (!(ret = (char **)malloc(sizeof(*ret) * words + 1)))
