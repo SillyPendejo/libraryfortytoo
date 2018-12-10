@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 17:36:18 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/09 18:36:47 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/10 19:39:19 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*tmp;
 	t_list	*ret;
 	t_list	*start;
 

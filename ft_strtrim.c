@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 14:35:15 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/07 15:39:51 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/10 19:40:16 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char		*ft_strtrim(char const *s)
 {
 	size_t	end;
 	size_t	i;
-	size_t	j;
 	char	*ret;
 
 	if (!s)

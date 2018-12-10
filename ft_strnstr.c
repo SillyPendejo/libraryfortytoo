@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 04:05:53 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/01 03:26:59 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/10 19:39:55 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	comp(const char *haystack, const char *needle, size_t len)
 {
-	int j;
+	size_t j;
 
 	j = 1;
 	while (needle[j] && haystack[j] &&
