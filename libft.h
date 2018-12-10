@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 01:04:11 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/09 20:25:17 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/10 18:01:18 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+typedef struct		s_stack
+{
+	void			*content;
+	struct s_stack	*next;
+}					t_stack;
 int					ft_atoi(const char *str);
 void				*ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
@@ -79,4 +84,10 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_stack				*ft_stack_new(void const *content);
+size_t				ft_word_count(char const *s, char c);
+void				ft_stack_push(t_stack **pile, t_stack *new);
+void				ft_stack_pop(t_stack **pile, void (*del)(void *));
+void				ft_bubble_sort(long long int *a, int order);
+void				ft_swap(long long int *a, long long int *b);
 #endif

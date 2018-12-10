@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_word_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/09 16:37:24 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/10 17:39:04 by tiyellow         ###   ########.fr       */
+/*   Created: 2018/12/10 16:51:26 by tiyellow          #+#    #+#             */
+/*   Updated: 2018/12/10 16:51:51 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <string.h>
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+size_t		ft_word_count(char const *s, char c)
 {
-	del((*alst)->content, (*alst)->content_size);
-	if (alst)
-		free(*alst);
-	*alst = NULL;
+	size_t	i;
+	size_t	words;
+
+	i = 0;
+	words = 0;
+	if (!s[i])
+		return (0);
+	if (s[i] != c)
+		words = 1;
+	while (s[i] != c && s[i])
+		i++;
+	while (s[i + 1])
+	{
+		if (s[i] == c && s[i + 1] != c)
+			words++;
+		i++;
+	}
+	return (words);
 }

@@ -6,35 +6,13 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 15:42:01 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/09 19:40:20 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/10 16:53:21 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
-
-static size_t		wcount(char const *s, char c)
-{
-	size_t	i;
-	size_t	words;
-
-	i = 0;
-	words = 0;
-	if (!s[i])
-		return (0);
-	if (s[i] != c)
-		words = 1;
-	while (s[i] != c && s[i])
-		i++;
-	while (s[i + 1])
-	{
-		if (s[i] == c && s[i + 1] != c)
-			words++;
-		i++;
-	}
-	return (words);
-}
 
 static size_t		wsize(char const *s, char c, size_t wordnum)
 {
@@ -102,7 +80,7 @@ char				**ft_strsplit(char const *s, char c)
 	{
 		return (NULL);
 	}
-	words = wcount(s, c);
+	words = ft_word_count(s, c);
 	if (words == 0)
 	{
 		if (!(ret = (char **)malloc(sizeof(*ret))))
