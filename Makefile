@@ -6,7 +6,7 @@
 #    By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/09 20:30:29 by tiyellow          #+#    #+#              #
-#    Updated: 2018/12/18 05:04:34 by tiyellow         ###   ########.fr        #
+#    Updated: 2018/12/18 05:36:52 by tiyellow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ FUNCS = ft_atoi.c ft_bubble_sort.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_strdel.c ft_strdup.c ft_strequ.c ft_striter.c ft_striteri.c ft_strjoin.c \
 		ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c \
 		ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c \
-		ft_strstr.c ft_strsub.c ft_strtrim.c ft_swap.c ft_tolower.c ft_toupper.c ft_word_count.c
+		ft_strstr.c ft_strsub.c ft_strtrim.c ft_swap.c ft_tolower.c ft_toupper.c \
+		ft_word_count.c ft_lst_clean.c
 OBJS = $(FUNCS:%.c=%.o) 
 all: $(NAME)
 
@@ -31,7 +32,7 @@ $(NAME):
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 clean:
-	@rm -f *.o
+	@rm -f $(OBJS)
 fclean: clean
-	@rm -f *.a
+	@rm -f $(NAME)
 re: fclean all

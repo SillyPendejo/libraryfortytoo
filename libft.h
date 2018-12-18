@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 01:04:11 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/18 01:04:07 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/18 05:30:46 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,5 @@ void				ft_memswap(void *s1, void *s2, size_t n);
 long				ft_sqrt(long nb);
 void				*ft_realloc(void *p, size_t size);
 char				*ft_stradd_free(char const *s1, char const *s2, size_t n);
+void				ft_lst_clean(void *content, size_t size);
 #endif
