@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:26:30 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/06 16:00:20 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/16 04:58:34 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int		ft_strequ(char const *s1, char const *s2)
 	u2 = (unsigned char *)s2;
 	while (u1[i] && u2[i] && u1[i] == u2[i])
 		i++;
-	return ((u1[i] - u2[i] == 0) ? 1 : 0);
+	if (u1[i] - u2[i] == 0)
+		return (1);
+	return (0);
 }

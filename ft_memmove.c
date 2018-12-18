@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/09 12:04:44 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/09 12:06:18 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/18 01:24:36 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char *tmp;
 	unsigned char *tmp2;
 
+	if (!dest && !src)
+		return (NULL);
 	tmp = dest;
 	tmp2 = (unsigned char*)src;
 	if (src >= dest)

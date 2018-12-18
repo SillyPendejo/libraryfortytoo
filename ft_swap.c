@@ -6,13 +6,13 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:39:19 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/10 18:14:42 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/16 22:14:16 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(long long int *a, long long int *b)
+void	ft_swap(long *a, long *b)
 {
-	long long int tmp;
+	long tmp;
 
 	tmp = *a;
 	*a = *b;

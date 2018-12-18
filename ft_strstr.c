@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 03:06:21 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/11/30 03:56:59 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/16 04:55:58 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ static int	comp(const char *haystack, const char *needle)
 	while (needle[j] && haystack[j] &&
 			needle[j] == haystack[j])
 		j++;
-	return (needle[j] ? 0 : 1);
+	if (needle[j])
+		return (0);
+	return (1);
 }
 
 char		*ft_strstr(const char *haystack, const char *needle)

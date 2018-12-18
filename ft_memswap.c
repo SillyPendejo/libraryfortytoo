@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_memswap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 14:17:48 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/18 01:09:29 by tiyellow         ###   ########.fr       */
+/*   Created: 2018/12/16 21:53:43 by tiyellow          #+#    #+#             */
+/*   Updated: 2018/12/16 22:09:20 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
-#include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_memswap(void *s1, void *s2, size_t n)
 {
-	char	*ret;
-	size_t	size;
-	size_t	i;
+	char	tmp;
+	char	*c1;
+	char	*c2;
 
-	if (!s)
-		return (NULL);
-	size = ft_strlen(s);
-	if (!(ret = (char *)malloc(size * sizeof(*ret) + 1)))
-		return (NULL);
-	i = 0;
-	while (s[i] && i < size)
+	if (!s1 || !s2 || n <= 0)
+		return ;
+	c1 = (char *)s1;
+	c2 = (char *)s2;
+	while (n--)
 	{
-		ret[i] = f(s[i]);
-		i++;
+		tmp = *c1;
+		*c1 = *c2;
+		*c2 = tmp;
+		c1++;
+		c2++;
 	}
-	ret[i] = '\0';
-	return (ret);
 }

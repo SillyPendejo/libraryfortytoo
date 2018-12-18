@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 14:17:48 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/18 01:09:29 by tiyellow         ###   ########.fr       */
+/*   Created: 2018/12/17 00:45:00 by tiyellow          #+#    #+#             */
+/*   Updated: 2018/12/17 00:50:42 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,12 @@
 #include <string.h>
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	*ft_realloc(void *p, size_t size)
 {
-	char	*ret;
-	size_t	size;
-	size_t	i;
-
-	if (!s)
+	if (p)
+		free(p);
+	if (!(p = malloc(size)))
 		return (NULL);
-	size = ft_strlen(s);
-	if (!(ret = (char *)malloc(size * sizeof(*ret) + 1)))
-		return (NULL);
-	i = 0;
-	while (s[i] && i < size)
-	{
-		ret[i] = f(s[i]);
-		i++;
-	}
-	ret[i] = '\0';
-	return (ret);
+	ft_memset(p, 0, size);
+	return (p);
 }

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 14:17:48 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/18 01:09:29 by tiyellow         ###   ########.fr       */
+/*   Created: 2018/12/16 21:24:41 by tiyellow          #+#    #+#             */
+/*   Updated: 2018/12/16 21:38:06 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
-#include "libft.h"
-
-char	*ft_strmap(char const *s, char (*f)(char))
+long		ft_pow(long n, long pow)
 {
-	char	*ret;
-	size_t	size;
-	size_t	i;
+	long tmp;
+	long check;
 
-	if (!s)
-		return (NULL);
-	size = ft_strlen(s);
-	if (!(ret = (char *)malloc(size * sizeof(*ret) + 1)))
-		return (NULL);
-	i = 0;
-	while (s[i] && i < size)
+	if (pow < 0)
+		return (0);
+	if (pow == 0)
+		return (1);
+	tmp = n;
+	while (--pow)
 	{
-		ret[i] = f(s[i]);
-		i++;
+		check = n;
+		n *= tmp;
+		if (n / tmp != check)
+			return (0);
 	}
-	ret[i] = '\0';
-	return (ret);
+	return (n);
 }

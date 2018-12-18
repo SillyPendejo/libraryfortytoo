@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 01:04:11 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/10 18:01:18 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/18 01:04:07 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,9 @@ void				ft_stack_push(t_stack **pile, t_stack *new);
 void				ft_stack_pop(t_stack **pile, void (*del)(void *));
 void				ft_bubble_sort(long long int *a, int order);
 void				ft_swap(long long int *a, long long int *b);
+long				ft_pow(long n, long pow);
+void				ft_memswap(void *s1, void *s2, size_t n);
+long				ft_sqrt(long nb);
+void				*ft_realloc(void *p, size_t size);
+char				*ft_stradd_free(char const *s1, char const *s2, size_t n);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:56:09 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/06 16:04:09 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/16 04:58:41 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n)
 		i++;
 	if (i == n)
 		--i;
-	return ((u1[i] - u2[i] == 0) ? 1 : 0);
+	if (u1[i] - u2[i] == 0)
+		return (1);
+	return (0);
 }

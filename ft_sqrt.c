@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 14:17:48 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/18 01:09:29 by tiyellow         ###   ########.fr       */
+/*   Created: 2018/12/16 21:42:30 by tiyellow          #+#    #+#             */
+/*   Updated: 2018/12/16 22:15:03 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
-#include "libft.h"
-
-char	*ft_strmap(char const *s, char (*f)(char))
+long	ft_sqrt(long nb)
 {
-	char	*ret;
-	size_t	size;
-	size_t	i;
+	long		check;
 
-	if (!s)
-		return (NULL);
-	size = ft_strlen(s);
-	if (!(ret = (char *)malloc(size * sizeof(*ret) + 1)))
-		return (NULL);
-	i = 0;
-	while (s[i] && i < size)
+	if (nb > 3)
 	{
-		ret[i] = f(s[i]);
-		i++;
+		check = 2;
+		while (check * check <= nb)
+		{
+			if (check * check == nb)
+				return (check);
+			++check;
+		}
+		return (-1);
 	}
-	ret[i] = '\0';
-	return (ret);
+	else
+		return (-1);
 }

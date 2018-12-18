@@ -6,60 +6,69 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 05:09:24 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/07 14:27:20 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/18 03:41:17 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int		overflow(const char *str, int i, int neg)
+static int		digits(const char *str)
 {
-	int		j;
-	int		k;
-	char	*model;
+	int dig;
 
-	k = 0;
-	j = i;
-	model = neg == 1 ? "9223372036854775807" : "9223372036854775808";
-	while (str[j] >= '0' && str[j] <= '9')
+	dig = 0;
+	if (*str == '0')
+		while (*str == '0')
+			str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		while (str[j] >= model[k] && str[j] <= '9' && model[k] && str[j])
-		{
-			j++;
-			k++;
-		}
-		if (!model[k])
-			return (neg == 1 ? -1 : 0);
-		j++;
+		str++;
+		dig++;
 	}
-	if (i - j + 1 > 19)
-		return (neg == 1 ? -1 : 0);
-	return (2);
+	return (dig);
+}
+
+static int		overflow(const char *str, int neg)
+{
+	char *model;
+
+	while (*str == '0')
+		str++;
+	model = neg == 1 ? "9223372036854775807" : "9223372036854775808";
+	while (*str >= '0' && *str <= '9')
+	{
+		if (*str > *model)
+			return (1);
+		else if (*str < *model)
+			return (0);
+		str++;
+		model++;
+	}
+	return (0);
 }
 
 int				ft_atoi(const char *str)
 {
-	int i;
-	int neg;
-	int nb;
+	int		neg;
+	long	nb;
+	long	min;
 
+	min = 2147483648;
 	nb = 0;
 	neg = 1;
-	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == '\t' || *str == '\n' || *str == '\v'
+			|| *str == '\f' || *str == '\r' || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+		neg = *(str++) == '-' ? -1 : 1;
+	if (digits(str) > 19)
+		return (neg == 1 ? -1 : 0);
+	else if (digits(str) == 19)
+		if (overflow(str, neg))
+			return (neg == 1 ? -1 : 0);
+	while (*str >= '0' && *str <= '9')
 	{
-		neg = str[i] == '-' ? -1 : 1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		if (overflow(str + i, i, neg) != 2)
-			return (overflow(str + i, i, neg));
-		if (neg == -1 && nb == 214748364 && str[i] == '8')
-			return (-2147483648);
-		nb = str[i] - '0' + nb * 10;
-		i++;
+		nb = *(str++) - '0' + nb * 10;
+		if (nb > min - 1)
+			nb = (nb * -1 + min) * -1 + min * -1;
 	}
 	return (nb * neg);
 }
