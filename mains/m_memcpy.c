@@ -17,7 +17,7 @@ int		main()
 	fa = a;
 	printf("dst   : %s\nsrc   : %s\ni: %d\n", a, b, (int)i);
 	printf("ft_dst: %s\nsrc_ft: %s\n", a, b);
-	memcpy(a, b, i);
-	ft_memcpy(fa, fb, i);
+	printf("memcpy return value   : %s\n", memcpy(a, b, i));
+	printf("ft_memcpy return value: %s\n", ft_memcpy(fa, fb, i));
 	printf("memcpy dst   : %s\nft_memcpy dst: %s\n", a, fa);
 }
