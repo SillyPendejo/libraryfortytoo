@@ -6,7 +6,7 @@
 /*   By: tiyellow <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 18:50:01 by tiyellow          #+#    #+#             */
-/*   Updated: 2018/12/18 04:18:01 by tiyellow         ###   ########.fr       */
+/*   Updated: 2018/12/20 13:18:26 by tiyellow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_strnew(size_t size)
 	char	*ret;
 	size_t	tmp;
 
-	tmp = size;
-	if (tmp > size + 1)
-		return (NULL);
-	if (!(ret = (char*)malloc(sizeof(*ret) * (size + 1))))
+//	tmp = size;
+/*	if (tmp > size + 1)
+		return (NULL);*/
+	if (!(ret = (char*)malloc(sizeof(*ret) * size + 1)))
 		return (NULL);
 	ft_bzero(ret, size + 1);
 	return (ret);
